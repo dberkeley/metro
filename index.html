@@ -1,0 +1,74 @@
+<!DOCTYPE html> 
+<html> 
+   <head> 
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+   <title>Metro Mobile</title>
+   <link rel="stylesheet" href="css/mobile.css" />
+
+   <script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+   <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+   
+<script type='text/javascript' language='javascript'>
+$(document).ready(function () {
+	$('nav li a').click(function(){
+		
+		var id = $(this).attr('id');
+		readlist(id);
+		
+	})
+	
+	
+});
+
+
+function readlist(cat){
+	
+	var feed = 'http://www.metro.co.tt/mobile/' + cat;
+	var output = '<div>';
+	$.ajax({
+	  dataType: 'jsonp',
+	  url: feed,
+	  success: function (data) {
+		$.each( data, function( key, value ) {
+			//$('#result_table').html(data[0].node_title);
+			//$('#result_table').append(value.node_title + '<br />');
+			output = output + '<div class="item"><div class="node-image">' + value.Image + '</div>';
+			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
+			output = output + '<div class="node-date">' + value.Date + '</div>';
+			output = output + '<div class="node-teaser">' + value.teaser + '</div></div>';
+			
+		}); 
+		
+		output = output + '</div>';
+		$('#content').html(output);
+	  }
+	});
+}
+</script>
+   
+</head> 
+<body>
+<div id="page">
+   <header>
+     <h1><img src="http://www.metro.co.tt/sites/all/themes/responsive_blog/logo.png" width="150" height="auto"></h1>
+   </header>
+   <nav>
+   		<ul>
+        <li class="first"><a id="spotlight" >Spotline</a></li>
+        <li><a id="culture">Culture</a></li>
+        <li><a id="lifestyle">Lifestyle</a></li>
+        <li class="last"><a id="sports">Sport Line</a></li>
+        </ul>
+   </nav>
+   <!-- /header -->
+   <div id="content">
+      
+  </div>
+<footer>
+      <h4>Metro &copy 2013 </h4>
+</footer>
+</div>  
+
+</body>
+</html>
