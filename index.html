@@ -12,15 +12,71 @@
    // JavaScript Document
 
 $(document).ready(function () {
-	readlist('spotlight');
+	var id = getURLParameters('id')
 	
-	$('nav li a').click(function(){
-		var id = $(this).attr('id');
-		readlist(id);
+	
+	if (id !=null){
+	readlist(id);
+	}else{
+		readlist('spotlight');		
+	}
+	
+	
+	var i=0;
+	$('#more').click(function(){
+		i++;
+		
+		if (id !=null){
+			readlist(id+'?page='+i+1);
+		}else{
+			readlist('spotlight'+'?page='+i+1);		
+		}
+		
 	})
 	
+	
+	var monthNames = [ "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December" ];
+var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+
+var newDate = new Date();
+newDate.setDate(newDate.getDate());    
+$('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+
 
 });
+
+function getURLParameters(paramName) 
+{
+        var sURL = window.document.URL.toString();  
+    if (sURL.indexOf("?") > 0)
+    {
+       var arrParams = sURL.split("?");         
+       var arrURLParams = arrParams[1].split("&");      
+       var arrParamNames = new Array(arrURLParams.length);
+       var arrParamValues = new Array(arrURLParams.length);     
+       var i = 0;
+       for (i=0;i<arrURLParams.length;i++)
+       {
+        var sParam =  arrURLParams[i].split("=");
+        arrParamNames[i] = sParam[0];
+        if (sParam[1] != "")
+            arrParamValues[i] = unescape(sParam[1]);
+        else
+            arrParamValues[i] = "No Value";
+       }
+
+       for (i=0;i<arrURLParams.length;i++)
+       {
+                if(arrParamNames[i] == paramName){
+            //alert("Param:"+arrParamValues[i]);
+                return arrParamValues[i];
+             }
+       }
+       return "No Parameters Found";
+    }
+
+}
 
 function readlist(cat){
 	
@@ -33,7 +89,9 @@ function readlist(cat){
 		$.each( data, function( key, value ) {
 			//$('#result_table').html(data[0].node_title);
 			//$('#result_table').append(value.node_title + '<br />');
-			output = output + '<a class="item" href="article.html?nid=' + value.nid + '"><div class="node-image">' + value.Image + '</div>';
+			output = output + '<a class="item" href="article.html?nid=' + value.nid + '">';
+			if (value.Image!=''){
+			output = output + '<div class="node-image">' + value.Image + '</div>';}
 			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
 			output = output + '<div class="node-date">' + value.Date + '</div>';
 			output = output + '<div class="node-teaser">' + value.teaser + '</div></a>';
@@ -41,7 +99,7 @@ function readlist(cat){
 		}); 
 		
 		output = output + '</div>';
-		$('#content').html(output);
+		$('#content').append(output);
 	  }
 	});
 }
@@ -50,22 +108,24 @@ function readlist(cat){
 <body>
 <div id="page">
    <header>
-     <h1><img src="http://www.metro.co.tt/sites/all/themes/responsive_blog/logo.png" width="250" height="auto"></h1>
+     <div  id="logo"><img width="200px" height="auto" src="http://www.metro.co.tt/sites/all/themes/responsive_blog/logo.png"></div>
+     <div id="Date"></div>
    </header>
    <nav>
    		<ul>
-        <li class="first"><a id="spotlight" >Spotline</a></li>
-        <li><a id="culture">Culture</a></li>
-        <li><a id="lifestyle">Lifestyle</a></li>
-        <li class="last"><a id="sports">Sport Line</a></li>
+        <li class="first"><a id="spotlight" href="index.html?id=spotlight" >Spotline</a></li>
+        <li><a id="culture" href="index.html?id=culture">Culture</a></li>
+        <li><a id="lifestyle" href="index.html?id=lifestyle">Lifestyle</a></li>
+        <li class="last"><a id="sports" href="index.html?id=sports">Sport Line</a></li>
         </ul>
    </nav>
    <!-- /header -->
    <div id="content">
 
   </div>
+  <div id="more"><h3>More Stories</h3></div>
 <footer>
-      <h4>Metro &copy 2013 </h4>
+      <h3>Metro &copy 2013 </h3>
 </footer>
 </div>  
 

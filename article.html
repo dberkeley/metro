@@ -9,17 +9,20 @@
    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script>
 
-   $(document).ready(function () {	
-	$('nav li a').click(function(){
-		var id = $(this).attr('id');
-		readlist(id);
-	})
-	
-	
-	
-	var nid = getURLParameters('nid');
+   $(document).ready(function () {		
+	var nid=getURLParameters('nid');
 	readarticle(nid);
 	facebook(nid);
+	
+	
+	var monthNames = [ "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December" ];
+var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+
+var newDate = new Date();
+newDate.setDate(newDate.getDate());    
+$('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+	
 });
 
 
@@ -62,6 +65,10 @@ function facebook(nid){
 	  url: feed,
 	  success: function (data) {
 			$('#content').append('<div class="fb-like" data-href="'+ data.path + '" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial"></div>').delay(2800);
+			$('#content').append('<a href="https://www.facebook.com/sharer/sharer.php?u='+data.path + '" target="_blank">Share on Facebook</a>').delay(2800);
+			
+			//
+
 		  }
 	});
 }
@@ -76,9 +83,9 @@ function readarticle(nid){
 			$.each( data, function( key, value ) {
 			output = output + '<div id="media"><div class="node-image">' + value.image + '</div>';
 			output = output + '<div class="node-image-caption">' + value.caption + '</div></div>';
-			output = output + '<div class="node-title"><h2>' + value.node_title + '</h2></div>';
-			output = output + '<div class="node-author"><h5>' + value.author + '</h5></div>';
-			output = output + '<div class="node-date"><h5>' + value.date + '</h5></div>';
+			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
+			output = output + '<div class="node-author"><h4>' + value.author + '</h4></div>';
+			output = output + '<div class="node-date"><h4>' + value.date + '</h4></div>';
 			output = output + '<div class="node-body">'+ value.body + '</div>';		
 		}); 
 		output = output + '</div>';
@@ -99,7 +106,9 @@ function readlist(cat){
 		$.each( data, function( key, value ) {
 			//$('#result_table').html(data[0].node_title);
 			//$('#result_table').append(value.node_title + '<br />');
-			output = output + '<a class="item" href="article.html?nid=' + value.nid + '"><div class="node-image">' + value.Image + '</div>';
+			output = output + '<a class="item" href="article.html?nid=' + value.nid + '">';
+			if (value.Image!=''){
+			output = output + '<div class="node-image">' + value.Image + '</div>';}
 			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
 			output = output + '<div class="node-date">' + value.Date + '</div>';
 			output = output + '<div class="node-teaser">' + value.teaser + '</div></a>';
@@ -126,14 +135,15 @@ function readlist(cat){
 
 <div id="page">
    <header>
-     <h1><img src="http://www.metro.co.tt/sites/all/themes/responsive_blog/logo.png" width="250" height="auto"></h1>
+     <div  id="logo"><img src="http://www.metro.co.tt/sites/all/themes/responsive_blog/logo.png" width="200" height="auto"></div>
+     <div id="Date"></div>
    </header>
    <nav>
    		<ul>
-        <li class="first"><a id="spotlight" >Spotline</a></li>
-        <li><a id="culture">Culture</a></li>
-        <li><a id="lifestyle">Lifestyle</a></li>
-        <li class="last"><a id="sports">Sport Line</a></li>
+        <li class="first"><a id="spotlight" href="index.html?id=spotlight" >Spotline</a></li>
+        <li><a id="culture" href="index.html?id=culture">Culture</a></li>
+        <li><a id="lifestyle" href="index.html?id=lifestyle">Lifestyle</a></li>
+        <li class="last"><a id="sports" href="index.html?id=sports">Sport Line</a></li>
         </ul>
    </nav>
    <!-- /header -->
