@@ -213,3 +213,40 @@ nav ul li a{
 nav ul li a:hover{
 	background:#999;
 }
+
+#content #sharebar a{
+	display:inline-block;
+	margin:10px;
+}
+
+#content #sharebar a:hover{
+	box-shadow: 4px 4px 3px #ccc;
+}
+
+#content #sharebar a.facebook_share{
+	background:url(../img/fb.png) center no-repeat;
+	height:25px;
+	width:78px;
+	font-size:0;
+}
+
+#content #sharebar a.google_share{
+	background:url(../img/google.png) center no-repeat;
+	height:25px;
+	width:61px;
+	font-size:0;
+}
+
+#content #sharebar a.tweet_share{
+	background:url(../img/tweet.png) center no-repeat;
+	height:25px;
+	width:72px;
+	font-size:0;
+}
+
+#content #sharebar a.email_share{
+	background:url(../img/email.png) center no-repeat;
+	height:25px;
+	width:38px;
+	font-size:0;
+}

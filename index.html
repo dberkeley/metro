@@ -5,108 +5,11 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <title>Metro Mobile</title>
    <link rel="stylesheet" href="css/mobile.css" />
-
    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-   
-<script>
-   // JavaScript Document
-
-$(document).ready(function () {
-	var id = getURLParameters('id')
-	
-	
-	if (id !=null){
-	readlist(id);
-	}else{
-		readlist('spotlight');		
-	}
-	
-	
-	var i=0;
-	$('#more').click(function(){
-		i++;
-		
-		if (id !=null){
-			readlist(id+'?page='+i+1);
-		}else{
-			readlist('spotlight'+'?page='+i+1);		
-		}
-		
-	})
-	
-	
-	var monthNames = [ "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December" ];
-var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
-
-var newDate = new Date();
-newDate.setDate(newDate.getDate());    
-$('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
-
-
-});
-
-function getURLParameters(paramName) 
-{
-        var sURL = window.document.URL.toString();  
-    if (sURL.indexOf("?") > 0)
-    {
-       var arrParams = sURL.split("?");         
-       var arrURLParams = arrParams[1].split("&");      
-       var arrParamNames = new Array(arrURLParams.length);
-       var arrParamValues = new Array(arrURLParams.length);     
-       var i = 0;
-       for (i=0;i<arrURLParams.length;i++)
-       {
-        var sParam =  arrURLParams[i].split("=");
-        arrParamNames[i] = sParam[0];
-        if (sParam[1] != "")
-            arrParamValues[i] = unescape(sParam[1]);
-        else
-            arrParamValues[i] = "No Value";
-       }
-
-       for (i=0;i<arrURLParams.length;i++)
-       {
-                if(arrParamNames[i] == paramName){
-            //alert("Param:"+arrParamValues[i]);
-                return arrParamValues[i];
-             }
-       }
-       return "No Parameters Found";
-    }
-
-}
-
-function readlist(cat){
-	
-	var feed = 'http://www.metro.co.tt/mobile/' + cat;
-	var output = '<div>';
-	$.ajax({
-	  dataType: 'jsonp',
-	  url: feed,
-	  success: function (data) {
-		$.each( data, function( key, value ) {
-			//$('#result_table').html(data[0].node_title);
-			//$('#result_table').append(value.node_title + '<br />');
-			output = output + '<a class="item" href="article.html?nid=' + value.nid + '">';
-			if (value.Image!=''){
-			output = output + '<div class="node-image">' + value.Image + '</div>';}
-			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
-			output = output + '<div class="node-date">' + value.Date + '</div>';
-			output = output + '<div class="node-teaser">' + value.teaser + '</div></a>';
-			
-		}); 
-		
-		output = output + '</div>';
-		$('#content').append(output);
-	  }
-	});
-}
-</script>
+   <script src="js/metro.js"></script>   
 </head> 
 <body>
-<div id="page">
+<div id="page" class="list nodes">
    <header>
      <div  id="logo"><img width="200px" height="auto" src="http://www.metro.co.tt/sites/all/themes/responsive_blog/logo.png"></div>
      <div id="Date"></div>

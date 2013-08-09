@@ -5,123 +5,9 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <title>Metro Mobile</title>
    <link rel="stylesheet" href="css/mobile.css" />
-
    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script>
-
-   $(document).ready(function () {		
-	var nid=getURLParameters('nid');
-	readarticle(nid);
-	facebook(nid);
-	
-	
-	var monthNames = [ "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December" ];
-var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
-
-var newDate = new Date();
-newDate.setDate(newDate.getDate());    
-$('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
-	
-});
-
-
-function getURLParameters(paramName) 
-{
-        var sURL = window.document.URL.toString();  
-    if (sURL.indexOf("?") > 0)
-    {
-       var arrParams = sURL.split("?");         
-       var arrURLParams = arrParams[1].split("&");      
-       var arrParamNames = new Array(arrURLParams.length);
-       var arrParamValues = new Array(arrURLParams.length);     
-       var i = 0;
-       for (i=0;i<arrURLParams.length;i++)
-       {
-        var sParam =  arrURLParams[i].split("=");
-        arrParamNames[i] = sParam[0];
-        if (sParam[1] != "")
-            arrParamValues[i] = unescape(sParam[1]);
-        else
-            arrParamValues[i] = "No Value";
-       }
-
-       for (i=0;i<arrURLParams.length;i++)
-       {
-                if(arrParamNames[i] == paramName){
-            //alert("Param:"+arrParamValues[i]);
-                return arrParamValues[i];
-             }
-       }
-       return "No Parameters Found";
-    }
-
-}
-
-function facebook(nid){
-		var feed = 'http://www.metro.co.tt/mobile/nodes/' + nid;
-	$.ajax({
-	  dataType: 'jsonp',
-	  url: feed,
-	  success: function (data) {
-			$('#content').append('<div class="fb-like" data-href="'+ data.path + '" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial"></div>').delay(2800);
-			$('#content').append('<a href="https://www.facebook.com/sharer/sharer.php?u='+data.path + '" target="_blank">Share on Facebook</a>').delay(2800);
-			
-			//
-
-		  }
-	});
-}
-
-function readarticle(nid){
-	var feed = 'http://www.metro.co.tt/mobile/article?nid=' + nid;
-	var output = '<div id="article">';
-	$.ajax({
-	  dataType: 'jsonp',
-	  url: feed,
-	  success: function (data) {
-			$.each( data, function( key, value ) {
-			output = output + '<div id="media"><div class="node-image">' + value.image + '</div>';
-			output = output + '<div class="node-image-caption">' + value.caption + '</div></div>';
-			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
-			output = output + '<div class="node-author"><h4>' + value.author + '</h4></div>';
-			output = output + '<div class="node-date"><h4>' + value.date + '</h4></div>';
-			output = output + '<div class="node-body">'+ value.body + '</div>';		
-		}); 
-		output = output + '</div>';
-		$('#content').append(output);
-	  }
-	});
-	
-}
-
-function readlist(cat){
-	
-	var feed = 'http://www.metro.co.tt/mobile/' + cat;
-	var output = '<div>';
-	$.ajax({
-	  dataType: 'jsonp',
-	  url: feed,
-	  success: function (data) {
-		$.each( data, function( key, value ) {
-			//$('#result_table').html(data[0].node_title);
-			//$('#result_table').append(value.node_title + '<br />');
-			output = output + '<a class="item" href="article.html?nid=' + value.nid + '">';
-			if (value.Image!=''){
-			output = output + '<div class="node-image">' + value.Image + '</div>';}
-			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
-			output = output + '<div class="node-date">' + value.Date + '</div>';
-			output = output + '<div class="node-teaser">' + value.teaser + '</div></a>';
-			
-		}); 
-		
-		output = output + '</div>';
-		$('#content').html(output);
-	  }
-	});
-}
-</script>
-   
+   <script src="https://apis.google.com/js/client.js"> </script>
+   <script src="js/metro.js"></script>
 </head> 
 <body>
 <div id="fb-root"></div>
@@ -133,7 +19,7 @@ function readlist(cat){
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<div id="page">
+<div id="page" class="article node">
    <header>
      <div  id="logo"><img src="http://www.metro.co.tt/sites/all/themes/responsive_blog/logo.png" width="200" height="auto"></div>
      <div id="Date"></div>
@@ -148,6 +34,7 @@ function readlist(cat){
    </nav>
    <!-- /header -->
    <div id="content">
+   <div id="sharebar"></div>
 
   </div>
 <footer>
