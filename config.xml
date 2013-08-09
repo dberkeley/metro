@@ -36,7 +36,7 @@
     <content src="index.html" />
 	
       <preference name="loglevel" value="DEBUG" />
-      <preference name="splash-screen" value="true" />
+      <preference name="splash-screen" value="splash.png" />
       <preference name="show-splash-screen-spinner" value="true" /> 
      <preference name="auto-hide-splash-screen" value="true" />
 	  <preference name="splash-screen-duration" value="2000" />
