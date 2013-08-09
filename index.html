@@ -6,7 +6,22 @@
    <title>Metro Mobile</title>
    <link rel="stylesheet" href="css/mobile.css" />
    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-   <script src="js/metro.js"></script>   
+   <script type="text/javascript" src="phonegap.js"></script>
+   <script src="js/metro.js"></script>
+   
+   <script type="text/javascript" charset="utf-8">
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        navigator.splashscreen.show();
+    }
+
+    </script>
+   
 </head> 
 <body>
 <div id="page" class="list nodes">
