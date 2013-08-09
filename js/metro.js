@@ -107,9 +107,9 @@ function facebook(nid){
 		get_short_url(data.path, function(short_url) {
 				$('#content #sharebar').append('<a class="facebook_share" href="https://www.facebook.com/sharer/sharer.php?u='+short_url+ '" target="_blank"></a>').delay(2800);
 						
-				$('#content #sharebar').append('<a class="tweet_share" href="https://plus.google.com/share?text=test&url='+short_url+ '" target="_blank"></a>').delay(2800);
+				$('#content #sharebar').append('<a class="google_share" href="https://plus.google.com/share?text=test&url='+short_url+ '" target="_blank"></a>').delay(2800);
 										
-				$('#content #sharebar').append('<a class="google_share" href="http://twitter.com/intent/tweet?text='+data.title+'&url='+short_url+ '" target="_blank"></a>').delay(2800);
+				$('#content #sharebar').append('<a class="tweet_share" href="http://twitter.com/intent/tweet?text='+data.title+'&url='+short_url+ '" target="_blank"></a>').delay(2800);
 				
 				$('#content #sharebar').append('<a class="email_share" href="Mailto:?subject='+data.title+'&body=Read this article '+data.title+', by clicking on the link '+short_url+' %0A Message sent using the Metro Mobile App."></a>').delay(2800);		
 		});
