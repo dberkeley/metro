@@ -33,6 +33,19 @@
 
     <access origin="*"/>
 	<gap:splash src="splash.png" />
+	<gap:splash src="splash/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="splash/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="splash/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="splash/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+	
+	<gap:splash src="splash/blackberry/240-260.png" gap:platform="blackberry" width="240" height="260" />
+	<gap:splash src="splash/blackberry/240-320.png" gap:platform="blackberry" width="240" height="320" />
+	<gap:splash src="splash/blackberry/320-240.png" gap:platform="blackberry" width="320" height="240" />
+	<gap:splash src="splash/blackberry/360-480.png" gap:platform="blackberry" width="360" height="480" />
+	<gap:splash src="splash/blackberry/480-320.png" gap:platform="blackberry" width="480" height="320" />
+	<gap:splash src="splash/blackberry/480-360.png" gap:platform="blackberry" width="480" height="360" />
+	
+	
     <!-- <content src="http://mysite.com/myapp.html" /> for external pages -->
     <content src="index.html" />
 	
