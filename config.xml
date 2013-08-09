@@ -18,7 +18,7 @@
  under the License.
 -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
-        id        = "io.cordova.helloCordova"
+        id        = "Metro.co.tt"
         version   = "2.0.0">
     <name>Metro Magazine</name>
 
@@ -31,21 +31,22 @@
     </author>
 
     <access origin="*"/>
-	<gap:splash src="splash.png" />
+	
     <!-- <content src="http://mysite.com/myapp.html" /> for external pages -->
     <content src="index.html" />
 	
       <preference name="loglevel" value="DEBUG" />
-    
+      <preference name="splashscreen" value="splash.png" />
       
 	  <preference name="splash-screen-duration" value="2000" />
       <preference name="backgroundColor" value="0xFFF" />
-  <!--<preference name="splashscreen" value="splash.png" />
-  		<preference name="loadUrlTimeoutValue" value="20000" />
+  <!--		<preference name="loadUrlTimeoutValue" value="20000" />
       <preference name="InAppBrowserStorageEnabled" value="true" />
       <preference name="disallowOverscroll" value="true" />
     -->
-
+	<gap:splash src="splash.png" />
+	
+	
     <feature name="App">
       <param name="android-package" value="org.apache.cordova.App"/>
     </feature>
