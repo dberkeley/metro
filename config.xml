@@ -20,14 +20,14 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         id        = "io.cordova.helloCordova"
         version   = "2.0.0">
-    <name>Hello Cordova</name>
+    <name>Metro Magazine</name>
 
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        A mobile application that connects to metro.co.tt
     </description>
 
-    <author href="http://cordova.io" email="dev@cordova.apache.org">
-        Apache Cordova Team
+    <author href="Guardian Media" email="dewayne.berkeley@guardian.co.tt">
+        Dewayne Berkeley
     </author>
 
     <access origin="*"/>
@@ -36,10 +36,11 @@
     <content src="index.html" />
 
     <preference name="loglevel" value="DEBUG" />
-    <!--
-      <preference name="splashscreen" value="resourceName" />
+    
+      <preference name="splashscreen" value="splash.png" />
+	  <preference name="splash-screen-duration" value="2000" />
       <preference name="backgroundColor" value="0xFFF" />
-      <preference name="loadUrlTimeoutValue" value="20000" />
+  <!--<preference name="loadUrlTimeoutValue" value="20000" />
       <preference name="InAppBrowserStorageEnabled" value="true" />
       <preference name="disallowOverscroll" value="true" />
     -->
