@@ -44,9 +44,9 @@
   <!--		<preference name="loadUrlTimeoutValue" value="20000" />
       <preference name="InAppBrowserStorageEnabled" value="true" />
       <preference name="disallowOverscroll" value="true" />
-    
-	<gap:splash src="splash.png" gap:platform="android" gap:density="ldpi" />
-	-->
+    -->
+	<gap name=splash value="splash.png"/>
+	
 	
     <feature name="App">
       <param name="android-package" value="org.apache.cordova.App"/>
