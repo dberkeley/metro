@@ -38,12 +38,8 @@
     <gap:splash src="splash/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
     <gap:splash src="splash/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
 	
-	<gap:splash src="splash/blackberry/240-260.png" gap:platform="blackberry" width="240" height="260" />
-	<gap:splash src="splash/blackberry/240-320.png" gap:platform="blackberry" width="240" height="320" />
-	<gap:splash src="splash/blackberry/320-240.png" gap:platform="blackberry" width="320" height="240" />
-	<gap:splash src="splash/blackberry/360-480.png" gap:platform="blackberry" width="360" height="480" />
-	<gap:splash src="splash/blackberry/480-320.png" gap:platform="blackberry" width="480" height="320" />
-	<gap:splash src="splash/blackberry/480-360.png" gap:platform="blackberry" width="480" height="360" />
+	<gap:splash src="splash/blackberry/360-480.png" gap:platform="blackberry"/>
+
 	
 	
     <!-- <content src="http://mysite.com/myapp.html" /> for external pages -->
@@ -54,7 +50,7 @@
       <preference name="show-splash-screen-spinner" value="true" />
      <preference name="auto-hide-splash-screen" value="true" />
 	  <preference name="splash-screen-duration" value="5000" />
-      <preference name="backgroundColor" value="0xFFF" />
+      <preference name="backgroundColor" value="FFF" />
   <!--		<preference name="loadUrlTimeoutValue" value="20000" />
       <preference name="InAppBrowserStorageEnabled" value="true" />
       <preference name="disallowOverscroll" value="true" />
