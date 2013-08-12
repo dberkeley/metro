@@ -234,6 +234,7 @@ nav ul li a:hover{
 #content{
 	float:left;
 	width:100%;
+	min-height:55%;
 	margin-top:150px;
 }
 
