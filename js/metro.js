@@ -5,11 +5,6 @@ $(document).ready(function () {
 	});
 	
 	
-	$(window).scroll(function() {
-                    if ($('#content').height() <= ($(window).height() + $(window).scrollTop())) {
-                        $('#more').show();
-                    }
-                });
 	
 	var id = getURLParameters('id')
 	
@@ -34,7 +29,6 @@ $(document).ready(function () {
 		}else{
 			readlist('spotlight'+'?page='+i+1);		
 		}
-		$(this).hide();
 	})
 	
 	showdate();
@@ -144,7 +138,19 @@ function readarticle(nid){
 			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
 			output = output + '<div class="node-author"><h4>' + value.author + '</h4></div>';
 			output = output + '<div class="node-date"><h4>' + value.date + '</h4></div>';
-			output = output + '<div class="node-body">'+ value.body + '</div>';		
+			output = output + '<div class="node-body">'+ value.body + '</div>';	
+			
+			var feed = 'http://www.metro.co.tt/mobile/nodes/' + value.nid;
+			$.ajax({
+			  dataType: 'jsonp',
+			  url: feed,
+			  success: function (data) {
+				  
+				loadComments("metromag", data.path, value.node_title, value.nid);
+					
+			  }
+			});
+			
 		}); 
 		output = output + '</div>';
 		$('#content').append(output);
@@ -168,4 +174,20 @@ function get_short_url(long_url, func)
             func(response.data.url);
         }
     );
+}
+
+
+function loadComments(shortname, url, title, identifier) {
+
+disqus_url = url;
+disqus_title = title;
+disqus_shortname = shortname;
+disqus_identifier = identifier;
+
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = false;
+dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+
 }
