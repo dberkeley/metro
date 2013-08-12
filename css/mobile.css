@@ -53,10 +53,6 @@ header{
 	top:0;
 }
 
-footer{
-	position:fixed;
-	bottom:0;
-}
 
 nav{
 	float:left;
@@ -107,7 +103,6 @@ background-image: -webkit-gradient(
 	float:left;
 	width:100%;
 	height:50px;
-	margin-bottom:10px;
 	text-align:center;
 	cursor:pointer;
 	background-image: linear-gradient(bottom, rgb(250,250,250) 15%, rgb(222,224,215) 52%, rgb(255,255,255) 91%);
@@ -240,7 +235,6 @@ nav ul li a:hover{
 	float:left;
 	width:100%;
 	margin-top:150px;
-	margin-bottom:80px;
 }
 
 #content #sharebar a{
