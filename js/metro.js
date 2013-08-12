@@ -1,4 +1,10 @@
 $(document).ready(function () {
+	
+	$('#menu').click(function(){
+		$('nav ul').toggle();	
+	});
+	
+	
 	var id = getURLParameters('id')
 	
 	if ($('.list').length){
