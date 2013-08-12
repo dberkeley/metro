@@ -50,7 +50,7 @@
       <preference name="show-splash-screen-spinner" value="true" />
      <preference name="auto-hide-splash-screen" value="true" />
 	  <preference name="splash-screen-duration" value="5000" />
-      <preference name="backgroundColor" value="FFF" />
+      <preference name="backgroundColor" value="0xffffffff" />
   <!--		<preference name="loadUrlTimeoutValue" value="20000" />
       <preference name="InAppBrowserStorageEnabled" value="true" />
       <preference name="disallowOverscroll" value="true" />
