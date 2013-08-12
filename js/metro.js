@@ -5,6 +5,12 @@ $(document).ready(function () {
 	});
 	
 	
+	$(window).scroll(function() {
+                    if ($('#content').height() <= ($(window).height() + $(window).scrollTop())) {
+                        $('#more').show();
+                    }
+                });
+	
 	var id = getURLParameters('id')
 	
 	if ($('.list').length){
@@ -28,6 +34,7 @@ $(document).ready(function () {
 		}else{
 			readlist('spotlight'+'?page='+i+1);		
 		}
+		$(this).hide();
 	})
 	
 	showdate();
