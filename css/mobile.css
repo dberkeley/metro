@@ -50,8 +50,8 @@ body {
 }
  
 .page.transition {
-    -webkit-transition-duration: .55s;
-    transition-duration: .55s;
+    -webkit-transition-duration: .35s;
+    transition-duration: .35s;
 }
 
 #content{
