@@ -5,11 +5,11 @@ var page=0;
 $(document).ready(function (){ 
 	
 	$('#menu').click(function(){
-		$('nav ul').toggle();	
-	});
-	
-	$('nav ul').click(function(){
-		$('nav ul').toggle();	
+		if ($('nav').hasClass('center')){
+			removemenu();
+		}else{
+		    slidemenu();
+		}
 	});
 		
 	<!--------------------------------->
@@ -250,6 +250,25 @@ function slidemain(){
 };
 
 <!----------------------------------->
+function slidemenu(){
+	
+		$("nav").removeClass("left");
+	// Position page at ending position of animation and add transition-duration
+		$("nav").addClass("transition center");
+	// Simultaneously slide out the current page to the left of the viewport
+};
+
+<!----------------------------------->
+
+function removemenu(){
+	
+		$("nav").removeClass("center");
+	// Position page at ending position of animation and add transition-duration
+		$("nav").addClass("transition left");
+	// Simultaneously slide out the current page to the left of the viewport
+};
+
+<!----------------------------------->
 function printarticle(id){
 		readarticle(id);
 		facebook(id);
@@ -262,5 +281,5 @@ function printlist(id){
 	section=id;
 	page=0;
 	readlist(section);
-	slidemain();
+	removemenu();
 }
