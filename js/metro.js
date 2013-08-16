@@ -1,10 +1,18 @@
-$(document).ready(function () {
+var section=null;
+var page=0;
+	
+
+$(document).ready(function (){ 
 	
 	$('#menu').click(function(){
 		$('nav ul').toggle();	
 	});
 	
-	
+	$('nav ul').click(function(){
+		$('nav ul').toggle();	
+	});
+		
+	<!--------------------------------->
 	
 	var id = getURLParameters('id')
 	
@@ -12,7 +20,7 @@ $(document).ready(function () {
 	if (id !=null){
 	readlist(id);
 	}else{
-		readlist('spotlight');		
+		printlist('spotlight');		
 	}
 	}else if ($('.node').length){
 		var nid=getURLParameters('nid');
@@ -20,14 +28,13 @@ $(document).ready(function () {
 		facebook(nid);
 	}
 	
+	<!------------------------------------>
 	
-	var i=0;
-	$('#more').click(function(){
-		i++;		
-		if (id !=null){
-			readlist(id+'?page='+i+1);
+	$('#more').click(function(){	
+		if (section !=null){
+			morelist(section+'?page='+page+1);
 		}else{
-			readlist('spotlight'+'?page='+i+1);		
+			morelist('spotlight'+'?page='+page+1);		
 		}
 	})
 	
@@ -78,6 +85,32 @@ function getURLParameters(paramName)
     }
 }
 
+
+// display more articles
+function morelist(cat){
+	var feed = 'http://www.metro.co.tt/mobile/' + cat;
+	var output = '<div>';
+	$.ajax({
+	  dataType: 'jsonp',
+	  url: feed,
+	  success: function (data) {
+		$.each( data, function( key, value ) {
+			//$('#result_table').html(data[0].node_title);
+			//$('#result_table').append(value.node_title + '<br />');
+			output = output + '<a class="item" href="#" onclick="printarticle('+value.nid +')">';
+			if (value.Image!=''){
+			output = output + '<div class="node-image">' + value.Image + '</div>';}
+			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
+			output = output + '<div class="node-date">' + value.Date + '</div>';
+			output = output + '<div class="node-teaser">' + value.teaser + '</div></a>';			
+		}); 
+		
+		output = output + '</div>';
+		$('#content .list').append(output);
+	  }
+	});
+}
+
 //Displays list for stories
 function readlist(cat){
 	var feed = 'http://www.metro.co.tt/mobile/' + cat;
@@ -89,7 +122,7 @@ function readlist(cat){
 		$.each( data, function( key, value ) {
 			//$('#result_table').html(data[0].node_title);
 			//$('#result_table').append(value.node_title + '<br />');
-			output = output + '<a class="item" href="article.html?nid=' + value.nid + '">';
+			output = output + '<a class="item" href="#" onclick="printarticle('+value.nid +')">';
 			if (value.Image!=''){
 			output = output + '<div class="node-image">' + value.Image + '</div>';}
 			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
@@ -98,7 +131,7 @@ function readlist(cat){
 		}); 
 		
 		output = output + '</div>';
-		$('#content').append(output);
+		$('#content .list').html(output);
 	  }
 	});
 }
@@ -112,17 +145,19 @@ function facebook(nid){
 	  success: function (data) {
 		  
 		get_short_url(data.path, function(short_url) {
-				$('#content #sharebar').append('<a class="facebook_share" href="https://www.facebook.com/sharer/sharer.php?u='+short_url+ '" target="_blank"></a>').delay(2800);
-						
-				$('#content #sharebar').append('<a class="google_share" href="https://plus.google.com/share?text=test&url='+short_url+ '" target="_blank"></a>').delay(2800);
-										
-				$('#content #sharebar').append('<a class="tweet_share" href="http://twitter.com/intent/tweet?text='+data.title+'&url='+short_url+ '" target="_blank"></a>').delay(2800);
-				
-				$('#content #sharebar').append('<a class="email_share" href="Mailto:?subject='+data.title+'&body=Read this article '+data.title+', by clicking on the link '+short_url+' %0A Message sent using the Metro Mobile App."></a>').delay(2800);		
+			
+			var sharebuttons='<button class="back" onClick="slidemain();"> Back</button>';
+			sharebuttons= sharebuttons + '<a class="facebook_share" href="https://www.facebook.com/sharer/sharer.php?u='+short_url+ '" target="_blank"></a>';
+			sharebuttons= sharebuttons + '<a class="google_share" href="https://plus.google.com/share?text=test&url='+short_url+ '" target="_blank"></a>';
+			sharebuttons= sharebuttons + '<a class="tweet_share" href="http://twitter.com/intent/tweet?text='+data.title+'&url='+short_url+ '" target="_blank"></a>';
+			sharebuttons= sharebuttons + '<a class="email_share" href="Mailto:?subject='+data.title+'&body=Read this article '+data.title+', by clicking on the link '+short_url+' %0A Message sent using the Metro Mobile App."></a>';		
+		
+		$('#content #sharebar').html(sharebuttons).delay(2800);;
 		});
 		}
 	});
 }
+
 
 //Displays content for articles
 function readarticle(nid){
@@ -153,7 +188,7 @@ function readarticle(nid){
 			
 		}); 
 		output = output + '</div>';
-		$('#content').append(output);
+		$('#content .article .story').html(output);
 	  }
 	});	
 }
@@ -176,7 +211,7 @@ function get_short_url(long_url, func)
     );
 }
 
-
+<!----------------------------------->
 function loadComments(shortname, url, title, identifier) {
 
 disqus_url = url;
@@ -190,4 +225,42 @@ dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
 
+}
+
+<!----------------------------------->
+function slidearticle(){
+	
+		$(".article").removeClass("right");
+	// Position page at ending position of animation and add transition-duration
+		$(".article").addClass("transition center");
+	// Simultaneously slide out the current page to the left of the viewport
+		$(".list").removeClass("center");	
+		$(".list").addClass("transition left");	
+};
+
+<!----------------------------------->
+function slidemain(){
+	
+		$(".article").removeClass("center");
+	// Position page at ending position of animation and add transition-duration
+		$(".article").addClass("transition right");
+	// Simultaneously slide out the current page to the left of the viewport
+		$(".list").removeClass("left");	
+		$(".list").addClass("transition center");	
+};
+
+<!----------------------------------->
+function printarticle(id){
+		readarticle(id);
+		facebook(id);
+		slidearticle();
+}
+
+<!----------------------------------->
+
+function printlist(id){
+	section=id;
+	page=0;
+	readlist(section);
+	slidemain();
 }

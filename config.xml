@@ -39,7 +39,6 @@
     <gap:splash src="splash/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
 	
 	<gap:splash src="splash/blackberry/360-480.png" gap:platform="blackberry"/>
-
 	
 	
     <!-- <content src="http://mysite.com/myapp.html" /> for external pages -->

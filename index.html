@@ -6,34 +6,51 @@
    <title>Metro Mobile</title>
    <link rel="stylesheet" href="css/mobile.css" />
    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+   <script type="text/javascript" src="js/iscroll.js"></script>
    <script type="text/javascript" src="phonegap.js"></script>
+   <script type="text/javascript" src="PushNotification.js"></script>
    <script src="js/metro.js"></script>   
+   
 </head> 
 <body>
 <div id="page" class="list nodes">
    <header>
-     <div  id="logo"><img width="200px" height="auto" src="http://www.metro.co.tt/sites/all/themes/responsive_blog/logo.png"></div>
+     <div  id="logo"><img src="http://www.metro.co.tt/sites/all/themes/responsive_blog/logo.png"></div>
      <div id="Date"></div>
    
    <nav>
    <button id="menu">Menu</button>
    		<ul>
-        <li class="first"><a id="spotlight" href="index.html?id=spotlight" >Spotline</a></li>
-        <li><a id="culture" href="index.html?id=culture">Culture</a></li>
-        <li><a id="lifestyle" href="index.html?id=lifestyle">Lifestyle</a></li>
-        <li class="last"><a id="sports" href="index.html?id=sports">Sport Line</a></li>
+        <li class="first"><a onClick="printlist('spotlight')" href="#" >Spotline</a></li>
+        <li><a onClick="printlist('culture')" href="#">Culture</a></li>
+        <li><a onClick="printlist('lifestyle')" href="#">Lifestyle</a></li>
+        <li class="last"><a onClick="printlist('sports')" href="#">Sport Line</a></li>
         </ul>
    </nav>
    </header>
    <!-- /header -->
    <div id="content">
-
+      
+       <div class="page center list"></div>
+       
+       
+       <div class="page right article">
+            <div id="sharebar"><button class="back" onClick="slidemain();"> Back</button></div>
+            <div class="story "></div>
+           
+           
+             <div id='disqus'>
+          
+          	<div id="disqus_thread"></div>
+          
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
   </div>
-  <button id="more">More Stories</button>
-  <div class='space'></div>
  
 <footer>
-     <h3>Metro &copy 2013 </h3> 
+     <h3>Metro &copy 2013 </h3> <button id="more">More Stories</button>
 </footer>
 </div>  
 
