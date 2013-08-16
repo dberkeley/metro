@@ -2,8 +2,10 @@ var section=null;
 var page=0;
 
 $(document).ready(function (){ 
-	var height=window.innerHeight + 'px';
+	var bheight=window.innerHeight + 'px';
+	var cheight=window.innerHeight-118 + 'px';
 	$('body').css('height', height);
+	$('content').css('height', cheight);
 
    
 	$('#menu').click(function(){
@@ -283,5 +285,5 @@ function printlist(id){
 	page=0;
 	removemenu();
 	readlist(section);
-	slidemain().delay(4000);
+	slidemain();
 }

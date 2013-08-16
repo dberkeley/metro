@@ -97,7 +97,7 @@ footer {
 header #logo{
 	float: left;
     padding: 0 10px;
-	width:220px;
+	width:180px;
 	height:65px;
 	margin-left:10px;
 }
@@ -105,7 +105,7 @@ header #logo{
 header #logo img{
 	width:auto;
 	height:45px;
-	margin:10px;
+	margin:10px 0;
 	text-shadow:1px 1px #666;
 }
 
