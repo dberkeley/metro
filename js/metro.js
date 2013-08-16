@@ -280,6 +280,7 @@ function printarticle(id){
 function printlist(id){
 	section=id;
 	page=0;
-	readlist(section);
 	removemenu();
+	readlist(section);
+	slidemain().delay(4000);
 }
