@@ -57,11 +57,12 @@ body {
 
 #content{
 	position:absolute; z-index:1;
+	display:block;
 	top:70px; bottom:50px; left:0;
 	width:100%;
-	min-height:300px;
 	background:#fff;
 	overflow:hidden;
+	margin-bottom:48px;
 	
 }
 

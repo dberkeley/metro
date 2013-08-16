@@ -2,11 +2,21 @@ var section=null;
 var page=0;
 
 $(document).ready(function (){ 
-	var bheight=window.innerHeight + 'px';
-	var cheight=window.innerHeight-118 + 'px';
-	$('body').css('height', height);
-	$('content').css('height', cheight);
+	var bheight=$(document).height() + 'px';
+	var bwidth=$(document).width() + 'px';
+	var cheight=$(document).height()-118 + 'px';
+	$('body').css('height', bheight);
+	$('body').css('width', bwidth);
+	$('#content').css('height', cheight);
 
+window.addEventListener("orientationchange", function() {
+ 	var bheight=$(document).height() + 'px';
+	var bwidth=$(document).width() + 'px';
+	var cheight=$(document).height()-118 + 'px';
+	$('body').css('height', bheight);
+	$('body').css('width', bwidth);
+	$('#content').css('height', cheight);
+}, false);
    
 	$('#menu').click(function(){
 		if ($('nav').hasClass('center')){
