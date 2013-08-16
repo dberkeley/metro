@@ -2,21 +2,6 @@ var section=null;
 var page=0;
 
 $(document).ready(function (){ 
-	var bheight=$(window).height() + 'px';
-	var bwidth=$(window).width() + 'px';
-	var cheight=$(window).height()-118 + 'px';
-	$('body').css('height', bheight);
-	$('body').css('width', bwidth);
-	$('#content').css('height', cheight);
-
-window.addEventListener("orientationchange", function() {
- 	var bheight=$(window).height() + 'px';
-	var bwidth=$(window).width() + 'px';
-	var cheight=$(window).height()-118 + 'px';
-	$('body').css('height', bheight);
-	$('body').css('width', bwidth);
-	$('#content').css('height', cheight);
-}, false);
    
 	$('#menu').click(function(){
 		if ($('nav').hasClass('center')){
