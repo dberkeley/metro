@@ -102,6 +102,7 @@ header #logo{
 header #logo img{
 	width:auto;
 	height:55px;
+	margin:10px;
 	text-shadow:1px 1px #666;
 }
 
@@ -248,6 +249,8 @@ background-image: -webkit-gradient(
 }
 
 #menu{
+	float:right;
+	margin:10px;
 	width:40px;
 	height:40px;
 	font-size:0;
