@@ -2,17 +2,17 @@ var section=null;
 var page=0;
 
 $(document).ready(function (){ 
-	var bheight=$(document).height() + 'px';
-	var bwidth=$(document).width() + 'px';
-	var cheight=$(document).height()-118 + 'px';
+	var bheight=$(window).height() + 'px';
+	var bwidth=$(window).width() + 'px';
+	var cheight=$(window).height()-118 + 'px';
 	$('body').css('height', bheight);
 	$('body').css('width', bwidth);
 	$('#content').css('height', cheight);
 
 window.addEventListener("orientationchange", function() {
- 	var bheight=$(document).height() + 'px';
-	var bwidth=$(document).width() + 'px';
-	var cheight=$(document).height()-118 + 'px';
+ 	var bheight=$(window).height() + 'px';
+	var bwidth=$(window).width() + 'px';
+	var cheight=$(window).height()-118 + 'px';
 	$('body').css('height', bheight);
 	$('body').css('width', bwidth);
 	$('#content').css('height', cheight);
