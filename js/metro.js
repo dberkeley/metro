@@ -1,9 +1,11 @@
 var section=null;
 var page=0;
-	
 
 $(document).ready(function (){ 
-	
+	var height=window.innerHeight + 'px';
+	$('body').css('height', height);
+
+   
 	$('#menu').click(function(){
 		if ($('nav').hasClass('center')){
 			removemenu();
@@ -12,6 +14,7 @@ $(document).ready(function (){
 		}
 	});
 		
+	showdate();
 	<!--------------------------------->
 	
 	var id = getURLParameters('id')
@@ -37,8 +40,6 @@ $(document).ready(function (){
 			morelist('spotlight'+'?page='+page+1);		
 		}
 	})
-	
-	showdate();
 	//end document load
 });
 
