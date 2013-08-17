@@ -227,7 +227,7 @@ dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
 
 <!----------------------------------->
 function slidearticle(){
-	
+			$('#more').hide();
 		$(".article").removeClass("right");
 	// Position page at ending position of animation and add transition-duration
 		$(".article").addClass("transition center");
@@ -238,7 +238,7 @@ function slidearticle(){
 
 <!----------------------------------->
 function slidemain(){
-	
+	$('#more').show();
 		$(".article").removeClass("center");
 	// Position page at ending position of animation and add transition-duration
 		$(".article").addClass("transition right");
