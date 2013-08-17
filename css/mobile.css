@@ -154,25 +154,28 @@ body {
     height: 100%;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
-	overflow:auto;
 }
-
-.page.center {
-    left: 0;
-}
-
+ 
 .page.left {
-    left: -100%;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+}
+ 
+.page.center {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
  
 .page.right {
-    left: 100%;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
 }
  
 .page.transition {
-    -webkit-transition-duration: .35s;
-    transition-duration: .35s;
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
 }
+
 
 #content{
 	position:absolute; z-index:1;
