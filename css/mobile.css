@@ -21,7 +21,7 @@ body, #page {
 	height:240px;
 	}
 
-	content{
+	#content{
 		height:122px;
 	}
 		
@@ -33,7 +33,7 @@ body, #page {
 	height:360px;
 	}
 
-	content{
+	#content{
 		height:242px;
 	}	
 }
@@ -45,7 +45,7 @@ body, #page {
 	height:320px;
 	}
 
-	content{
+	#content{
 		height:122px;
 	}
 }
@@ -57,7 +57,7 @@ body, #page {
 	height:360px;
 	}
 
-	content{
+	#content{
 		height:262px;
 	}
 }
@@ -69,7 +69,7 @@ body, #page {
 	height:640px;
 	}
 
-	content{
+	#content{
 		height:522px;
 	}	
 }
@@ -80,7 +80,7 @@ body, #page {
 	height:800px;
 	}
 	
-	content{
+	#content{
 		height:682px;
 	}
 }
