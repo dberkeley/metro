@@ -17,7 +17,6 @@ body, #page {
 
 /* Blackberry 8520 */
 @media only screen and (max-height: 240px){
-{
 	body, #page {
 	height:240px;
 	}
@@ -39,17 +38,6 @@ body, #page {
 	}	
 }
 
-/* Blackberry Strom Storm/2 Portrait */
-@media only screen and (max-height: 480px){
-	
-	body, #page {
-	height:360px;
-	}
-
-	content{
-		height:262px;
-	}
-}
 
 /* Blackberry Bold 9000*/
 @media only screen and (max-height: 320px){
@@ -62,9 +50,20 @@ body, #page {
 	}
 }
 
+/* Blackberry Strom Storm/2 Portrait */
+@media only screen and (max-height: 480px){
+	
+	body, #page {
+	height:360px;
+	}
+
+	content{
+		height:262px;
+	}
+}
 
 /* Blackberry Bold 9810 Portrait*/
-	@media only screen and (max-height: 640px){
+@media only screen and (max-height: 640px){
 		
 	body, #page {
 	height:640px;
@@ -85,6 +84,7 @@ body, #page {
 		height:682px;
 	}
 }
+
 
 body {
 	font-size:12px;
