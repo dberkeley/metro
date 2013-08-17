@@ -22,15 +22,8 @@ body, #page {
 	}
 
 	#content{
-		float:left;
 		height:122px;
 		margin-bottom:48px;
-	}
-	
-	footer {
-		position:fixed; z-index:2;
-		top:122px;
-		bottom:0; left:0;
 	}
 		
 }
@@ -42,16 +35,9 @@ body, #page {
 	}
 
 	#content{
-		float:left;
 		height:242px;
 		margin-bottom:48px;
 	}	
-	
-	footer {
-		position:fixed; z-index:2;
-		top:242px;
-		bottom:0; left:0;
-	}
 }
 
 
@@ -62,15 +48,8 @@ body, #page {
 	}
 
 	#content{
-		float:left;
 		height:122px;
 		margin-bottom:48px;
-	}
-	
-	footer {
-		position:fixed; z-index:2;
-		top:122px;
-		bottom:0; left:0;
 	}
 }
 
@@ -82,15 +61,8 @@ body, #page {
 	}
 
 	#content{
-		float:left;
 		height:262px;
 		margin-bottom:48px;
-	}
-	
-	footer {
-		position:fixed; z-index:2;
-		top:262px;
-		bottom:0; left:0;
 	}
 }
 
@@ -102,16 +74,9 @@ body, #page {
 	}
 
 	#content{
-		float:left;
 		height:522px;
 		margin-bottom:48px;
 	}	
-	
-	footer {
-		position:fixed; z-index:2;
-		top:522px;
-		bottom:0; left:0;
-	}
 }
 
 /* Blackberry Bold 9860 Portrait*/
@@ -121,15 +86,8 @@ body, #page {
 	}
 	
 	#content{
-		float:left;
 		height:682px;
 		margin-bottom:48px;
-	}
-	
-	footer {
-		position:fixed; z-index:2;
-		top:682px;
-		bottom:0; left:0;
 	}
 }
 
@@ -139,11 +97,6 @@ body {
 	-webkit-user-select:none;
     -webkit-text-size-adjust:none;
 	font-family:helvetica;
-}
-
-#page{
-	overflow:hidden;
-	min-height:300px;
 }
 
 .page {
@@ -170,14 +123,14 @@ body {
 }
  
 .page.transition {
-    -webkit-transition-duration: .25s;
-    transition-duration: .25s;
+    -webkit-transition-duration: .35s;
+    transition-duration: .35s;
 }
 
 #content{
 	position:absolute; z-index:1;
 	display:block;
-	top:70px; bottom:50px; left:0;
+	top:70px; bottom:40px; left:0;
 	width:100%;
 	background:#fff;
 	overflow:hidden;
