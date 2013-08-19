@@ -16,76 +16,102 @@ body, #page {
 }
 
 /* Blackberry 8520 */
-@media only screen and (max-height: 240px){
+@media only screen and (max-height: 240px) and (max-width: 320px){
 	body, #page {
 	height:240px;
 	}
 
 	#content{
-		height:240px;
-	}
-		
+		height:170px;
+	}	
 }
 
 /* Blackberry Strom Storm/2 Landscape */
-@media only screen and (max-height: 360px){
+@media only screen and (max-height: 360px) and (max-width: 480px){
 	body, #page {
 	height:360px;
 	}
 
 	#content{
 		height:290px;
-	}	
+	}
 }
 
+/* Blackberry Strom Storm/2 Portrait */
+@media only screen and (max-height: 480px) and (max-width: 360px){
+body, #page {
+	height:480px;
+	}
 
+	#content{
+		height:410px;
+	}
+}
 /* Blackberry Bold 9000*/
-@media only screen and (max-height: 320px){
+@media only screen and (max-height: 320px) and (max-width: 480px){
 	body, #page {
 	height:320px;
 	}
 
 	#content{
-		height:270px;
+		height:250px;
 	}
 }
 
-/* Blackberry Strom Storm/2 Portrait */
-@media only screen and (max-height: 480px){
-	
+/* Blackberry Bold 9700 */
+@media only screen and (max-height: 480px) and (max-width: 360px){
 	body, #page {
-	height:360px;
+	height:480px;
 	}
 
 	#content{
-		height:310px;
+		height:410px;
+	}
+}
+
+/* Blackberry Bold 9900 (Touch) */
+@media only screen and (max-height: 480px) and (max-width: 640px){
+	body, #page {
+	height:480px;
+	}
+
+	#content{
+		height:410px;
+	}
+}
+
+/* Blackberry Torch 8900 Portrait*/
+@media only screen and (max-height: 480px) and (max-width: 360px){
+	body, #page {
+	height:480px;
+	}
+
+	#content{
+		height:410px;
 	}
 }
 
 /* Blackberry Bold 9810 Portrait*/
-@media only screen and (max-height: 640px){
-		
+@media only screen and (max-height: 640px) and (max-width: 480px){
 	body, #page {
 	height:640px;
 	}
 
 	#content{
 		height:570px;
-	}	
+	}
 }
 
 /* Blackberry Bold 9860 Portrait*/
-@media only screen and (max-height: 800px){
+@media only screen and (max-height: 800px) and (max-width: 480px){
 	body, #page {
 	height:800px;
 	}
-	
+
 	#content{
-		height:720px;
-		
+		height:730px;
 	}
 }
-
 
 body {
 	font-size:12px;
