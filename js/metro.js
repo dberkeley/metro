@@ -104,7 +104,7 @@ function morelist(cat){
 		}); 
 		
 		output = output + '</div>';
-		$('#content .list').append(output);
+		$('#content .list #list').append(output);
 	  }
 	});
 }
@@ -129,7 +129,7 @@ function readlist(cat){
 		}); 
 		
 		output = output + '</div>';
-		$('#content .list').html(output);
+		$('#content .list #list').html(output);
 	  }
 	});
 }
@@ -239,6 +239,7 @@ function slidearticle(){
 <!----------------------------------->
 function slidemain(){
 	$('#more').show();
+	$('#content #sharebar').hide();
 		$(".article").removeClass("center");
 	// Position page at ending position of animation and add transition-duration
 		$(".article").addClass("transition right");
@@ -269,6 +270,7 @@ function removemenu(){
 <!----------------------------------->
 function printarticle(id){
 		readarticle(id);
+		$('#content #sharebar').show();
 		facebook(id);
 		slidearticle();
 }
@@ -279,6 +281,7 @@ function printlist(id){
 	section=id;
 	page=0;
 	removemenu();
+	$('#content #sharebar').hide();
 	readlist(section);
 	slidemain();
 }
