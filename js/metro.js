@@ -31,12 +31,6 @@ $(document).ready(function (){
 		html: html
 	});
 
-var handleTouchyPinch = function (e, $target, data) {
-    $target.css({'webkitTransform':'scale(' + data.scale + ',' + data.scale + ')'});
-};
-$('#content').bind('touchy-pinch', handleTouchyPinch);
-
-
 });
 
 function share(){
