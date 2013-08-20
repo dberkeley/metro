@@ -11,6 +11,20 @@
    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
    <script type="text/javascript" src="phonegap.js"></script>
    <script src="js/metro.js"></script>   
+   <script type="application/javascript" src="js/iscroll.js"></script>
+
+<script type="text/javascript">
+
+var myScroll;
+function loaded() {
+	myScroll = new iScroll('wrapper', { zoom:true });
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+document.addEventListener('DOMContentLoaded', loaded, false);
+
+</script>
    
 </head> 
 <body id="ui-page-top" class="ui-mobile-viewport ui-overlay-a slide in reverse">
