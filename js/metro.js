@@ -1,3 +1,6 @@
+$(document).bind("mobileinit", function(){
+      $.mobile.metaViewportContent = "width=device-width, minimum-scale=1, maximum-scale=2";
+});
 
 $(document).ready(function (){ 
 //$.mobile.loading( 'hide').delay(1000);
