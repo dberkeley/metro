@@ -33,7 +33,7 @@ body, #page {
 	}
 
 	#content{
-		height:270px;
+		height:300px;
 	}
 }
 
@@ -44,7 +44,7 @@ body, #page {
 	}
 
 	#content{
-		height:390px;
+		height:420px;
 	}
 }
 /* Blackberry Bold 9000*/
@@ -54,7 +54,7 @@ body, #page {
 	}
 
 	#content{
-		height:230px;
+		height:260px;
 	}
 }
 
@@ -65,7 +65,7 @@ body, #page {
 	}
 
 	#content{
-		height:390px;
+		height:420px;
 	}
 }
 
@@ -76,7 +76,7 @@ body, #page {
 	}
 
 	#content{
-		height:390px;
+		height:420px;
 	}
 }
 
@@ -87,7 +87,7 @@ body, #page {
 	}
 
 	#content{
-		height:390px;
+		height:420px;
 	}
 }
 
@@ -98,7 +98,7 @@ body, #page {
 	}
 
 	#content{
-		height:550px;
+		height:580px;
 	}
 }
 
@@ -109,7 +109,7 @@ body, #page {
 	}
 
 	#content{
-		height:710px;
+		height:770px;
 	}
 }
 
@@ -124,7 +124,7 @@ body {
 #content{
 	position:absolute; z-index:1;
 	display:block;
-	top:90px; bottom:0; left:0;
+	top:60px; bottom:0; left:0;
 	width:100%;
 	padding:0;
 	margin:0;
@@ -136,7 +136,7 @@ body {
 	position:fixed; z-index:2;
 	top:0; left:0;
 	width:100%;
-	height:85px;
+	height:55px;
 	background-color:#d51875;
 	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #fe96c9), color-stop(0.05, #d51875), color-stop(1, #7b0a2e));
 	background-image:-moz-linear-gradient(top, #fe96c9, #d51875 5%, #7b0a2e);
@@ -161,6 +161,7 @@ footer {
 }
 
 #logo{
+	float:right;
 	display: inline-block;
     padding: 0 10px;
 	width:180px;
@@ -283,15 +284,16 @@ footer h3{
 }
 
 #Date{
-	float:left;
-	width:100%;
+	float:right;
+	margin:20px 30px;
 	font-size:14px;
 	text-align:center;
 	padding:0;
 }
 
 #menu{
-	margin:30px;
+	float:left;
+	margin:10px;
 }
 
 nav ul{
