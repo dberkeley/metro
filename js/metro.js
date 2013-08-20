@@ -1,6 +1,7 @@
 
 $(document).ready(function (){ 
 //$.mobile.loading( 'hide').delay(1000);
+
 	<!--------------------------------->
 	var page=0;
 	$('#more').click(function(){
@@ -30,7 +31,10 @@ $(document).ready(function (){
 		html: html
 	});
 
-
+var handleTouchyPinch = function (e, $target, data) {
+    $target.css({'webkitTransform':'scale(' + data.scale + ',' + data.scale + ')'});
+};
+$('#content').bind('touchy-pinch', handleTouchyPinch);
 
 
 });
@@ -99,7 +103,7 @@ function morelist(cat){
 		$.each( data, function( key, value ) {
 			//$('#result_table').html(data[0].node_title);
 			//$('#result_table').append(value.node_title + '<br />');
-			output = output + '<a class="item" onClick="article('+value.nid +')" href="#">';
+			output = output + '<a class="item" data-transition="pop" rel="external"  href="story.html?nid='+value.nid +'" >';
 			if (value.Image!=''){
 			output = output + '<div class="node-image">' + value.Image + '</div>';}
 			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
