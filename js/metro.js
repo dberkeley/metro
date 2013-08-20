@@ -1,36 +1,11 @@
-var section=null;
-var page=0;
 
 $(document).ready(function (){ 
-   
-	$('#menu').click(function(){
-		if ($('nav').hasClass('center')){
-			removemenu();
-		}else{
-		    slidemenu();
-		}
-	});
-		
-	showdate();
+//$.mobile.loading( 'hide').delay(1000);
 	<!--------------------------------->
-	
-	var id = getURLParameters('id')
-	
-	if ($('.list').length){
-	if (id !=null){
-	readlist(id);
-	}else{
-		printlist('spotlight');		
-	}
-	}else if ($('.node').length){
-		var nid=getURLParameters('nid');
-		readarticle(nid);
-		facebook(nid);
-	}
-	
-	<!------------------------------------>
-	
-	$('#more').click(function(){	
+	var page=0;
+	$('#more').click(function(){
+		page++;
+		var section=getURLParameters('id') 	
 		if (section !=null){
 			morelist(section+'?page='+page+1);
 		}else{
@@ -38,7 +13,36 @@ $(document).ready(function (){
 		}
 	})
 	//end document load
+	
+
+	var $this = $( this ),
+	theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+	msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+	textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+	textonly = !!$this.jqmData( "textonly" );
+	html = $this.jqmData( "html" ) || "";
+	
+	$.mobile.loading( 'show', {
+		text: msgText,
+		textVisible: textVisible,
+		theme: theme,
+		textonly: textonly,
+		html: html
+	});
+
+
+
+
 });
+
+function share(){
+	$('.social').toggle();
+}
+
+function loadarticle(nid){
+readarticle(nid);
+facebook(nid);
+}
 
 //displays current date on header
 function showdate(){
@@ -95,7 +99,7 @@ function morelist(cat){
 		$.each( data, function( key, value ) {
 			//$('#result_table').html(data[0].node_title);
 			//$('#result_table').append(value.node_title + '<br />');
-			output = output + '<a class="item" href="#" onclick="printarticle('+value.nid +')">';
+			output = output + '<a class="item" onClick="article('+value.nid +')" href="#">';
 			if (value.Image!=''){
 			output = output + '<div class="node-image">' + value.Image + '</div>';}
 			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
@@ -120,7 +124,7 @@ function readlist(cat){
 		$.each( data, function( key, value ) {
 			//$('#result_table').html(data[0].node_title);
 			//$('#result_table').append(value.node_title + '<br />');
-			output = output + '<a class="item" href="#" onclick="printarticle('+value.nid +')">';
+			output = output + '<a class="item" data-transition="pop" rel="external"  href="story.html?nid='+value.nid +'" >';
 			if (value.Image!=''){
 			output = output + '<div class="node-image">' + value.Image + '</div>';}
 			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
@@ -144,11 +148,11 @@ function facebook(nid){
 		  
 		get_short_url(data.path, function(short_url) {
 			
-			var sharebuttons='<button class="back" onClick="slidemain();"> Back</button>';
-			sharebuttons= sharebuttons + '<a class="facebook_share" href="https://www.facebook.com/sharer/sharer.php?u='+short_url+ '" target="_blank"></a>';
-			sharebuttons= sharebuttons + '<a class="google_share" href="https://plus.google.com/share?text=test&url='+short_url+ '" target="_blank"></a>';
-			sharebuttons= sharebuttons + '<a class="tweet_share" href="http://twitter.com/intent/tweet?text='+data.title+'&url='+short_url+ '" target="_blank"></a>';
-			sharebuttons= sharebuttons + '<a class="email_share" href="Mailto:?subject='+data.title+'&body=Read this article '+data.title+', by clicking on the link '+short_url+' %0A Message sent using the Metro Mobile App."></a>';		
+			var sharebuttons='<a  class=" back ui-btn ui-shadow ui-btn-corner-all ui-btn-up-b" data-theme="b" data-rel="back" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-rel="back"><span class="ui-btn-inner"><span class="ui-btn-text"> Back </span></span></a><a onclick="share();" class=" share ui-btn ui-shadow ui-btn-corner-all ui-btn-up-b" data-theme="b" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span"><span class="ui-btn-inner"><span class="ui-btn-text"> Share </span></span></a>';
+			sharebuttons= sharebuttons + '<div class="social" ><a onclick="share();" class="facebook_share" href="https://www.facebook.com/sharer/sharer.php?u='+short_url+ '" target="_blank"></a>';
+			sharebuttons= sharebuttons + '<a onclick="share();" class="google_share" href="https://plus.google.com/share?text=test&url='+short_url+ '" target="_blank"></a>';
+			sharebuttons= sharebuttons + '<a onclick="share();" class="tweet_share" href="http://twitter.com/intent/tweet?text='+data.title+'&url='+short_url+ '" target="_blank"></a>';
+			sharebuttons= sharebuttons + '<a onclick="share();" class="email_share" href="Mailto:?subject='+data.title+'&body=Read this article '+data.title+', by clicking on the link '+short_url+' %0A Message sent using the Metro Mobile App."></a></div>';		
 		
 		$('#content #sharebar').html(sharebuttons).delay(2800);;
 		});
@@ -223,61 +227,4 @@ dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
 
-}
-
-<!----------------------------------->
-function slidearticle(){
-
-		$(".article").removeClass("right");
-	// Position page at ending position of animation and add transition-duration
-		$(".article").addClass("transition center");
-	// Simultaneously slide out the current page to the left of the viewport
-		$(".list").removeClass("center");	
-		$(".list").addClass("transition left");	
-};
-
-<!----------------------------------->
-function slidemain(){
-		$(".article").removeClass("center");
-	// Position page at ending position of animation and add transition-duration
-		$(".article").addClass("transition right");
-	// Simultaneously slide out the current page to the left of the viewport
-		$(".list").removeClass("left");	
-		$(".list").addClass("transition center");	
-};
-
-<!----------------------------------->
-function slidemenu(){
-	
-		$("nav").removeClass("left");
-	// Position page at ending position of animation and add transition-duration
-		$("nav").addClass("transition center");
-	// Simultaneously slide out the current page to the left of the viewport
-};
-
-<!----------------------------------->
-
-function removemenu(){
-	
-		$("nav").removeClass("center");
-	// Position page at ending position of animation and add transition-duration
-		$("nav").addClass("transition left");
-	// Simultaneously slide out the current page to the left of the viewport
-};
-
-<!----------------------------------->
-function printarticle(id){
-		readarticle(id);
-		facebook(id);
-		slidearticle();
-}
-
-<!----------------------------------->
-
-function printlist(id){
-	section=id;
-	page=0;
-	removemenu();
-	readlist(section);
-	slidemain();
 }

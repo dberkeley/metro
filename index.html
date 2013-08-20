@@ -1,56 +1,56 @@
 <!DOCTYPE html> 
-<html> 
+<html class="ui-mobile"> 
    <head> 
-   <meta charset="utf-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Metro Mobile</title>
+   
+   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
    <link rel="stylesheet" href="css/mobile.css" />
-   <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+   <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
    <script type="text/javascript" src="phonegap.js"></script>
    <script src="js/metro.js"></script>   
    
 </head> 
-<body>
-
-<header>
+<body id="ui-page-top" class="ui-mobile-viewport ui-overlay-a slide in reverse">
+<div id="page" class="nodes" data-role="page">
+<div data-role="header" class="ui-header ui-bar-b header">
      <div  id="logo"><img src="http://www.metro.co.tt/sites/all/themes/responsive_blog/logo.png"></div>
-     <div id="Date"></div>
-   <button id="menu"></button>
-   </header>
-<div id="page" class="nodes">
-   
+     <a href="menu.html" data-rel="dialog" data-transition="flip" id="menu">Menu</a>
+     <!--- <button  id="menu"></button> -->
+     <div id="Date"><script> showdate(); </script></div>
+</div>
    <!-- /header -->
-   <div id="content">
-      <nav class="page left">
-   		<ul>
-        <li class="first"><a onClick="printlist('spotlight')" href="#" >Spotline</a></li>
-        <li class="second"><a onClick="printlist('culture')" href="#">Culture</a></li>
-        <li><a onClick="printlist('lifestyle')" href="#">Lifestyle</a></li>
-        <li class="last second"><a onClick="printlist('sports')" href="#">Sport Line</a></li>
-        </ul>
-   	</nav>
-       
-       <div class="page center list">
+   <div  class="ui-content ui-body-c" data-theme="c" data-role="content" role="main" id="content">
+       <div class="page list">
        
        <div id="list"></div>
-       <button id="more">More Stories</button>
-       </div>
-       
-       
-       
-       <div class="page right article">
-       <div id="sharebar"></div>
-       <div class="story "></div>
-		<div id='disqus'>
-		<div id="disqus_thread"></div>
-		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        </div>
-         <div id="sharebar"></div>
-        </div>
-       
+       <a class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-b" data-theme="b" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" href="#" id="more">
+       <span class="ui-btn-inner">
+			<span class="ui-btn-text">
+            More Stories
+            </span>
+            </span>
+            </a> 
+       </div>     
   </div>
- 
 
 </div>  
+
 </body>
 </html>
+
+<script>
+
+	window.setTimeout(function() {
+ 		$.mobile.loading( 'hide');
+	}, 1000);
+	
+	var id = getURLParameters('id');
+	if (id !=null){
+	readlist(id);
+	}else{
+		readlist('spotlight');		
+	}
+</script>
