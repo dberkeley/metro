@@ -117,7 +117,7 @@ function morelist(cat){
 		$.each( data, function( key, value ) {
 			//$('#result_table').html(data[0].node_title);
 			//$('#result_table').append(value.node_title + '<br />');
-			output = output + '<a class="item" data-transition="pop" rel="external"  href="story.html?nid='+value.nid +'" >';
+			output = output + '<a class="item" onClick="article('+value.nid+')">';
 			if (value.Image!=''){
 			output = output + '<div class="node-image">' + value.Image + '</div>';}
 			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
@@ -168,7 +168,7 @@ function facebook(nid){
 		  
 		get_short_url(data.path, function(short_url) {
 			
-			var sharebuttons='<a  class=" back ui-btn ui-shadow ui-btn-corner-all ui-btn-up-b" data-theme="b" data-rel="back" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-rel="back"><span class="ui-btn-inner"><span class="ui-btn-text"> Back </span></span></a><a onclick="share();" class=" share ui-btn ui-shadow ui-btn-corner-all ui-btn-up-b" data-theme="b" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span"><span class="ui-btn-inner"><span class="ui-btn-text"> Share </span></span></a>';
+			var sharebuttons='<a  class=" back ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" data-theme="c" data-rel="back" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-rel="back"><span class="ui-btn-inner"><span class="ui-btn-text"> Back </span></span></a><a onclick="share();" class=" share ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" data-theme="c" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span"><span class="ui-btn-inner"><span class="ui-btn-text"> Share </span></span></a>';
 			sharebuttons= sharebuttons + '<div class="social" ><a onclick="share();" class="facebook_share" href="https://www.facebook.com/sharer/sharer.php?u='+short_url+ '" target="_blank"></a>';
 			sharebuttons= sharebuttons + '<a onclick="share();" class="google_share" href="https://plus.google.com/share?text=test&url='+short_url+ '" target="_blank"></a>';
 			sharebuttons= sharebuttons + '<a onclick="share();" class="tweet_share" href="http://twitter.com/intent/tweet?text='+data.title+'&url='+short_url+ '" target="_blank"></a>';
