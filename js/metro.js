@@ -1,11 +1,6 @@
-$(document).bind("mobileinit", function(){
-      $.mobile.metaViewportContent = "width=device-width, minimum-scale=1, maximum-scale=2";
-});
-
-$(document).ready(function (){ 
-//$.mobile.loading( 'hide').delay(1000);
-
+$(document).ready(function(){
 	<!--------------------------------->
+	list();
 	var page=0;
 	$('#more').click(function(){
 		page++;
@@ -35,6 +30,28 @@ $(document).ready(function (){
 	});
 
 });
+         
+		
+
+
+function list(){
+   window.setTimeout(function() {
+ 		$.mobile.loading( 'hide');
+	}, 1000);
+	
+	var id = getURLParameters('id');
+	if (id !=null){
+	readlist(id);
+	}else{
+		readlist('spotlight');		
+	}	
+}
+
+function article(nid){
+	$.mobile.changePage( "story.html?nid="+nid,  { reloadPage : true, transition: "slide", changeHash: true });
+}
+
+
 
 function share(){
 	$('.social').toggle();
@@ -125,7 +142,9 @@ function readlist(cat){
 		$.each( data, function( key, value ) {
 			//$('#result_table').html(data[0].node_title);
 			//$('#result_table').append(value.node_title + '<br />');
-			output = output + '<a class="item" data-transition="pop" rel="external"  href="story.html?nid='+value.nid +'" >';
+			
+			output = output + '<a class="item" onClick="article('+value.nid+')">';
+			//output = output + '<a class="item" onClick="article('+value.nid+')" data-transition="pop" rel="external"  href="story.html?nid='+value.nid +'" >';
 			if (value.Image!=''){
 			output = output + '<div class="node-image">' + value.Image + '</div>';}
 			output = output + '<div class="node-title"><h1>' + value.node_title + '</h1></div>';
