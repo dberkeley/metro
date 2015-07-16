@@ -108,7 +108,7 @@ function getURLParameters(paramName)
 
 // display more articles
 function morelist(cat){
-	var feed = 'http://www.metro.co.tt/mobile/' + cat;
+	var feed = 'http://metro.guardian.co.tt/mobile/' + cat;
 	var output = '<div>';
 	$.ajax({
 	  dataType: 'jsonp',
@@ -133,7 +133,7 @@ function morelist(cat){
 
 //Displays list for stories
 function readlist(cat){
-	var feed = 'http://www.metro.co.tt/mobile/' + cat;
+	var feed = 'http://metro.guardian.co.tt/mobile/' + cat;
 	var output = '<div>';
 	$.ajax({
 	  dataType: 'jsonp',
@@ -160,7 +160,7 @@ function readlist(cat){
 
 ///Place social shares for articles
 function facebook(nid){
-		var feed = 'http://www.metro.co.tt/mobile/nodes/' + nid;
+		var feed = 'http://metro.guardian.co.tt/mobile/nodes/' + nid;
 	$.ajax({
 	  dataType: 'jsonp',
 	  url: feed,
@@ -183,7 +183,7 @@ function facebook(nid){
 
 //Displays content for articles
 function readarticle(nid){
-	var feed = 'http://www.metro.co.tt/mobile/article?nid=' + nid;
+	var feed = 'http://metro.guardian.co.tt/mobile/article?nid=' + nid;
 	var output = '<div id="article">';
 	$.ajax({
 	  dataType: 'jsonp',
@@ -197,7 +197,7 @@ function readarticle(nid){
 			output = output + '<div class="node-date"><h4>' + value.date + '</h4></div>';
 			output = output + '<div class="node-body">'+ value.body + '</div>';	
 			
-			var feed = 'http://www.metro.co.tt/mobile/nodes/' + value.nid;
+			var feed = 'http://metro.guardian.co.tt/mobile/nodes/' + value.nid;
 			$.ajax({
 			  dataType: 'jsonp',
 			  url: feed,
